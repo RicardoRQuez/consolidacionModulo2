@@ -1,0 +1,30 @@
+/*@import url('https://fonts.googleapis.com/css2? family= El tipo+más+suerte & display=swap');
+
+h1,h2,h5{
+    familia tipográfica: 'El chico más afortunado', cursiva;
+}*/
+
+#cardInfo{
+    margin-block: 5px;
+}
+#infoDigi{
+    display: none;
+}
+#imgDigi{
+    padding: 50px;
+    display: block;
+}
+.row{
+    display: inline-block;
+    justify-content: center;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;   
+   
+}
+#cardInfo ul{
+    list-style-type: none
+}
