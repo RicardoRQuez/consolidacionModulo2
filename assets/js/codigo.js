@@ -26,7 +26,11 @@ digiForm.addEventListener("submit", function (event) {
             let lista = document.getElementById("digiList")
             lista.innerText = digiList;
         })
+        .then(info => {
 
+            recargaLista(digimon)
+
+        })
 
 })
 
@@ -54,6 +58,7 @@ const resultado = fetch(url)
         }
 
     })
+
 var digiSelected = null;
 $('#digiList').change(function () {
     digiSelected = $(this).val() //Estamos obteniendo el digimon seleccionado
@@ -90,33 +95,33 @@ $('#digiList').change(function () {
 
         })
 
-    function recargaLista(selected) {
-
-
-        fetch("https://digimon-api.vercel.app/api/digimon")
-            .then(response => response.json())
-            .then(data => {
-                let digiName = []
-
-                for (let digi of data) {
-
-                    digiName.push(digi.name)
-                }
-
-                return digiName
-            })
-            .then(listName => {
-                console.log(listName)
-                for (i in listName) {
-                    $("#digiList").append(`<option>${listName[i]}</option>`)
-                }
-                $("#digiList").append(`<option disabled selected> ${selected}</option> `)
-            })
-
-    }
+    
 
 });
+function recargaLista(selected) {
 
+
+    fetch("https://digimon-api.vercel.app/api/digimon")
+        .then(response => response.json())
+        .then(data => {
+            let digiName = []
+
+            for (let digi of data) {
+
+                digiName.push(digi.name)
+            }
+
+            return digiName
+        })
+        .then(listName => {
+            console.log(listName)
+            for (i in listName) {
+                $("#digiList").append(`<option>${listName[i]}</option>`)
+            }
+            $("#digiList").append(`<option disabled selected> ${selected}</option> `)
+        })
+
+}
 
 
 
